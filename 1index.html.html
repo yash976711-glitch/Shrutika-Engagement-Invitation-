@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Shrutika & Ajinkya — Engagement Invitation</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fff9f2;
+    --accent:#d9a441;
+    --muted:#7b6f64;
+    --card:#fff;
+    --gold: linear-gradient(90deg,#f7d18a,#f0b04b);
+  }
+  html,body{height:100%;margin:0;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;}
+  body{background: radial-gradient(circle at 10% 10%, #fffaf0 0%, #fff9f2 40%, #fff6ec 100%); color:#3b2f2a; -webkit-font-smoothing:antialiased;}
+  .container{max-width:1100px;margin:20px auto;padding:20px;}
+  header{display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .logo {width:64px;height:64px;border-radius:12px; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#fff7e6,#ffeacc); box-shadow:0 6px 18px rgba(0,0,0,0.08);}
+  .logo svg{width:48px;height:48px;}
+  h1{font-family: "Playfair Display", serif; margin:0; font-size:20px; color:#6b4b2a;}
+  .nav {display:flex; gap:10px; align-items:center;}
+  .btn {background:var(--accent); color:white; border:none; padding:10px 14px; border-radius:8px; cursor:pointer; font-weight:600; box-shadow: 0 6px 18px rgba(213,156,60,.18);}
+  .btn.secondary{background:transparent;color:var(--accent);border:1px solid rgba(213,156,60,0.2);}
+  /* Hero */
+  .hero{display:flex;gap:30px;align-items:center;margin-top:18px;padding:26px;border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.45));box-shadow:0 10px 30px rgba(112, 84, 50, 0.06);}
+  .hero-left{flex:1;min-width:260px;}
+  .hero-right{flex:1; display:flex; align-items:center; justify-content:center; position:relative;}
+  .title{font-family:"Playfair Display"; font-size:34px;color:#5b3c2a;margin:6px 0;}
+  .subtitle{color:var(--muted); margin-bottom:14px;}
+  .ring-row{display:flex;gap:10px;align-items:center;margin-top:10px;}
+  .chip{background:rgba(255,255,255,0.6);padding:8px 12px;border-radius:999px;border:1px solid rgba(0,0,0,0.03);font-weight:600;}
+  /* Couple card */
+  .card{background:var(--card); border-radius:16px; padding:18px; width:330px; text-align:center; box-shadow: 0 10px 30px rgba(121,85,60,0.06);}
+  /* Animated couple (SVG) */
+  .couple-svg{width:240px;height:240px;}
+  /* Rings animation container */
+  .ring-stage{position:absolute;right:40px;bottom:18px; width:180px; height:120px; display:flex; align-items:center; justify-content:center; pointer-events:none;}
+  .ring {width:46px;height:46px;border-radius:999px;border:6px solid #d4a14a; box-shadow:inset 0 -6px 14px rgba(0,0,0,0.06);}
+  .ring.r1{transform:translateX(-90px) translateY(40px); animation:ringmove1 2.2s ease-in-out infinite;}
+  .ring.r2{transform:translateX(90px) translateY(40px); animation:ringmove2 2.2s ease-in-out infinite;}
+  @keyframes ringmove1 {
+    0% { transform:translateX(-90px) translateY(40px) scale(1); }
+    45% { transform:translateX(-10px) translateY(0) scale(1.05) rotate(-6deg); }
+    55% { transform:translateX(10px) translateY(-2px) scale(1.05) rotate(-2deg); }
+    100% { transform:translateX(-90px) translateY(40px) scale(1); }
+  }
+  @keyframes ringmove2 {
+    0% { transform:translateX(90px) translateY(40px) scale(1); }
+    45% { transform:translateX(10px) translateY(0) scale(1.05) rotate(6deg); }
+    55% { transform:translateX(-10px) translateY(-2px) scale(1.05) rotate(2deg); }
+    100% { transform:translateX(90px) translateY(40px) scale(1); }
+  }
+
+  /* Details and layout */
+  .grid{display:grid;grid-template-columns:1fr 380px;gap:22px;margin-top:22px;}
+  .details{padding:22px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.65), rgba(255,248,240,0.6)); box-shadow:0 10px 20px rgba(0,0,0,0.03);}
+  .detail-item{display:flex;align-items:center; gap:12px;padding:10px 0;border-bottom:1px dashed rgba(0,0,0,0.04);}
+  .detail-item:last-child{border-bottom:none;}
+  .label{font-weight:600;color:#6b4b2a;width:130px;}
+  .value{color:var(--muted);}
+  /* Map card */
+  .map-card{border-radius:12px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.06);}
+  iframe{width:100%;height:260px;border:0;display:block;}
+  .map-actions{display:flex;gap:10px;padding:10px;background:rgba(255,255,255,.9);align-items:center; justify-content:space-between;}
+  .small {font-size:13px;color:var(--muted);}
+
+  /* RSVP */
+  form.rsvp{display:flex;flex-direction:column;gap:10px;padding:16px;border-radius:12px;background:linear-gradient(180deg,#fff,#fff7f0); box-shadow:0 12px 28px rgba(0,0,0,0.04);}
+  input,select,textarea{padding:10px;border-radius:10px;border:1px solid rgba(0,0,0,0.06);font-size:14px;}
+  textarea{min-height:80px;resize:vertical;}
+  .muted{color:var(--muted); font-size:13px;}
+  footer{margin-top:28px;text-align:center;color:var(--muted); font-size:13px;}
+
+  /* Floating hearts */
+  .hearts{position:fixed;left:0;right:0;top:0;bottom:0;pointer-events:none;overflow:hidden;z-index:5;}
+  .heart{position:absolute; width:18px;height:18px; transform:translateY(-100vh); opacity:0.9;}
+  .confetti-canvas{position:fixed;left:0;top:0;z-index:50;pointer-events:none;display:none;}
+
+  /* Responsive */
+  @media (max-width:900px){
+    .grid{grid-template-columns:1fr; }
+    .hero{flex-direction:column;}
+    .ring-stage{position:static;margin-top:16px; transform:none;}
+  }
+
+  /* small flourish */
+  .golden-text{background:linear-gradient(90deg,#f6d18d,#eab752); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:700;}
+  .fade-in{animation:fadeIn .9s ease both;}
+  @keyframes fadeIn{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:none;}}
+</style>
+</head>
+<body>
+<div class="hearts" aria-hidden="true"></div>
+<canvas class="confetti-canvas"></canvas>
+
+<div class="container" id="page">
+  <header>
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <!-- Simple stylized Ganesha mark (SVG) -->
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M32 6c-7 0-12 5-12 11 0 4 3 6 3 10 0 3-2 6-5 7 6 2 8 8 8 12 0 3 4 7 8 7s8-4 8-7c0-4 2-10 8-12-3-1-5-4-5-7 0-4 3-6 3-10 0-6-5-11-12-11-2 0-4 0-6 1-2-1-4-1-6-1z" fill="#d89b3a"/>
+          <circle cx="36" cy="22" r="2.5" fill="#fff"/>
+        </svg>
+      </div>
+      <div>
+        <h1 class="fade-in">Shrutika & Ajinkya — Engagement</h1>
+        <div class="small muted">24 October 2025 — Mahalaxmi Celebration Hall, Achalpur</div>
+      </div>
+    </div>
+
+    <div class="nav">
+      <button id="playMusicBtn" class="btn">Play Music</button>
+      <button class="btn secondary" onclick="document.getElementById('rsvpName').scrollIntoView({behavior:'smooth'})">RSVP</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero fade-in" aria-label="Invitation hero">
+    <div class="hero-left">
+      <div class="subtitle small">Shree Ganeshay Namah</div>
+      <div class="title">You are cordially invited to the Engagement Ceremony of</div>
+      <div style="display:flex;align-items:center;gap:12px;margin-top:6px;">
+        <div style="font-family:'Playfair Display'; font-size:28px; color:#5b3c2a;">Shrutika</div>
+        <div style="font-size:18px;color:var(--muted)">&</div>
+        <div style="font-family:'Playfair Display'; font-size:28px; color:#5b3c2a;">Ajinkya</div>
+      </div>
+
+      <div class="ring-row">
+        <div class="chip">Daughter of Sunil & Chitra Bhonde</div>
+        <div class="chip">24 Oct 2025</div>
+        <div class="chip">Mahalaxmi Celebration Hall</div>
+      </div>
+
+      <p class="muted" style="margin-top:12px;max-width:520px;">
+        Join us to celebrate love and togetherness. Please RSVP below to let us know if you will attend.
+      </p>
+
+      <div style="margin-top:14px;">
+        <button class="btn" onclick="document.getElementById('mapCard').scrollIntoView({behavior:'smooth'})">Get Directions</button>
+        <button class="btn secondary" onclick="toggleMusic()">Mute/Unmute</button>
+      </div>
+    </div>
+
+    <div class="hero-right" aria-hidden="false">
+      <div class="card">
+        <!-- Animated Ganesha small -->
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+          <svg width="120" height="120" viewBox="0 0 200 200" class="couple-svg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- stylized couple silhouette and ring -->
+            <g transform="translate(0,0)">
+              <ellipse cx="60" cy="148" rx="40" ry="15" fill="#fff3e8" />
+              <ellipse cx="140" cy="148" rx="40" ry="15" fill="#fff3e8" />
+              <circle cx="60" cy="80" r="26" fill="#f7d9b1" />
+              <rect x="48" y="100" width="24" height="54" rx="12" fill="#e9b07a" />
+              <circle cx="140" cy="70" r="26" fill="#f7d9b1" />
+              <rect x="128" y="92" width="24" height="62" rx="12" fill="#caa07c" />
+              <!-- ring icons -->
+              <g id="rings" transform="translate(50,20)">
+                <circle cx="30" cy="90" r="16" stroke="#d4a14a" stroke-width="6" fill="none" />
+                <circle cx="110" cy="90" r="16" stroke="#d4a14a" stroke-width="6" fill="none" />
+              </g>
+            </g>
+          </svg>
+
+          <div style="font-weight:700;color:#6b4b2a;">Shrutika & Ajinkya</div>
+          <div class="small muted">Engagement Ceremony • 24 Oct 2025</div>
+        </div>
+      </div>
+
+      <!-- floating ring animation -->
+      <div class="ring-stage" aria-hidden="true">
+        <div class="ring r1" aria-hidden="true"></div>
+        <div class="ring r2" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GRID with details + map + RSVP -->
+  <div class="grid">
+    <div class="details fade-in" aria-live="polite">
+      <h3 class="golden-text">Event Details</h3>
+      <div class="detail-item">
+        <div class="label">Bride</div>
+        <div class="value">Shrutika</div>
+      </div>
+      <div class="detail-item">
+        <div class="label">Groom</div>
+        <div class="value">Ajinkya</div>
+      </div>
+      <div class="detail-item">
+        <div class="label">Parents</div>
+        <div class="value">Sunil &amp; Chitra Bhonde</div>
+      </div>
+      <div class="detail-item">
+        <div class="label">Date</div>
+        <div class="value">24th October 2025</div>
+      </div>
+      <div class="detail-item">
+        <div class="label">Venue</div>
+        <div class="value">Mahalaxmi Celebration Hall, Achalpur</div>
+      </div>
+
+      <div style="margin-top:14px;display:flex;gap:8px;">
+        <button class="btn" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Mahalaxmi+Celebration+Hall+Achalpur')">Open Map</button>
+        <button class="btn secondary" onclick="document.getElementById('rsvpName').scrollIntoView({behavior:'smooth'})">RSVP Now</button>
+      </div>
+
+      <hr style="margin:16px 0;border:none;border-top:1px dashed rgba(0,0,0,0.05);" />
+      <div class="muted">Additional ideas: digital guestbook, photo upload for congratulatory wall, animated invitation video download link (optional).</div>
+    </div>
+
+    <aside>
+      <div id="mapCard" class="map-card fade-in">
+        <!-- Google Maps embed using a search query (no API key needed) -->
+        <iframe src="https://www.google.com/maps?q=Mahalaxmi+Celebration+Hall+Achalpur&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mahalaxmi Celebration Hall Map"></iframe>
+        <div class="map-actions">
+          <div>
+            <div style="font-weight:700;color:#5b3c2a;">Mahalaxmi Celebration Hall</div>
+            <div class="small muted">Achalpur, India</div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <button class="btn" onclick="openDirections()">Get Directions</button>
+            <button class="btn secondary" onclick="openPlace()">View on Google Maps</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="height:18px;"></div>
+
+      <div class="fade-in" style="border-radius:12px; overflow:hidden;">
+        <form id="rsvpForm" class="rsvp" onsubmit="submitRsvp(event)">
+          <h3 style="margin:0 0 6px 0;color:#5b3c2a;font-family:'Playfair Display';">RSVP</h3>
+          <input id="rsvpName" required placeholder="Your name" name="name" />
+          <input id="rsvpPhone" placeholder="Phone (optional)" name="phone" />
+          <select id="rsvpGuests" name="guests" aria-label="Number of guests">
+            <option value="1">1 Guest</option>
+            <option value="2">2 Guests</option>
+            <option value="3">3 Guests</option>
+            <option value="4">4 Guests</option>
+            <option value="5">5+ Guests</option>
+          </select>
+          <textarea id="rsvpMessage" placeholder="Message / Wishes (optional)"></textarea>
+          <div style="display:flex;gap:8px;">
+            <button type="submit" class="btn">Send RSVP</button>
+            <button type="button" class="btn secondary" onclick="showGuestList()">View RSVP list</button>
+          </div>
+          <div id="rsvpStatus" class="small muted" style="margin-top:8px;"></div>
+        </form>
+
+        <div id="guestListContainer" style="display:none;padding:12px;background:#fffefb;border-radius:12px;margin-top:12px;">
+          <h4 style="margin:6px 0 8px 0;color:#6b4b2a;">RSVPs</h4>
+          <ul id="guestList" style="margin:0;padding-left:18px;color:var(--muted)"></ul>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+
+  <footer>
+    <div>Made with ❤️ • Save the date: <strong>24 Oct 2025</strong></div>
+  </footer>
+</div>
+
+<!-- Background audio (replace src with your chosen instrumental) -->
+<audio id="bgAudio" loop preload="none">
+  <!-- Replace the source with your file or hosted mp3. Autoplay won't start without user gesture on many browsers -->
+  <source src="https://cdn.pixabay.com/download/audio/2021/12/15/audio_0b5f8d18b9.mp3?filename=calm-ambient-11024.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+  // Basic interactivity: music play/mute, map actions, RSVP handling, confetti
+  const audio = document.getElementById('bgAudio');
+  const playBtn = document.getElementById('playMusicBtn');
+  let isPlaying = false;
+
+  function toggleMusic() {
+    if (audio.paused) {
+      audio.play().catch(()=>{ /* fallback if autoplay blocked */ });
+      isPlaying = true;
+      playBtn.textContent = 'Music On';
+    } else {
+      audio.pause();
+      isPlaying = false;
+      playBtn.textContent = 'Play Music';
+    }
+  }
+
+  playBtn.addEventListener('click', toggleMusic);
+
+  function openDirections(){
+    // Opens Google Maps directions to venue
+    const destination = encodeURIComponent('Mahalaxmi Celebration Hall Achalpur');
+    window.open('https://www.google.com/maps/dir/?api=1&destination=' + destination, '_blank');
+  }
+  function openPlace(){
+    const destination = encodeURIComponent('Mahalaxmi Celebration Hall Achalpur');
+    window.open('https://www.google.com/maps/search/?api=1&query=' + destination, '_blank');
+  }
+
+  // RSVP storage (localStorage-based)
+  function getRsvps(){
+    try {
+      const raw = localStorage.getItem('engagement_rsvps_v1');
+      return raw ? JSON.parse(raw) : [];
+    } catch(e){ return []; }
+  }
+  function saveRsvps(list){
+    localStorage.setItem('engagement_rsvps_v1', JSON.stringify(list));
+  }
+
+  function submitRsvp(e){
+    e.preventDefault();
+    const name = document.getElementById('rsvpName').value.trim();
+    const phone = document.getElementById('rsvpPhone').value.trim();
+    const guests = document.getElementById('rsvpGuests').value;
+    const message = document.getElementById('rsvpMessage').value.trim();
+    if(!name){ alert('Please enter name'); return; }
+    const rsvps = getRsvps();
+    rsvps.push({name, phone, guests, message, ts: Date.now()});
+    saveRsvps(rsvps);
+    showRsvpStatus('Thank you! Your RSVP has been recorded.');
+    triggerConfetti();
+    // show guest list automatically
+    showGuestList();
+    // clear inputs
+    document.getElementById('rsvpPhone').value = '';
+    document.getElementById('rsvpMessage').value = '';
+  }
+
+  function showRsvpStatus(text){
+    const el = document.getElementById('rsvpStatus');
+    el.textContent = text;
+    setTimeout(()=> el.textContent = '', 6000);
+  }
+
+  // Display guest list
+  function showGuestList(){
+    const container = document.getElementById('guestListContainer');
+    const listEl = document.getElementById('guestList');
+    const rsvps = getRsvps();
+    listEl.innerHTML = '';
+    if(rsvps.length === 0){
+      listEl.innerHTML = '<li class="muted">No RSVPs yet</li>';
+    } else {
+      rsvps.slice().reverse().forEach(r=>{
+        const li = document.createElement('li');
+        const time = new Date(r.ts).toLocaleString();
+        li.innerHTML = `<strong>${escapeHtml(r.name)}</strong> — ${escapeHtml(r.guests)} guest(s) <div class="small muted">${escapeHtml(r.phone||'')} • ${escapeHtml(r.message||'')}</div>`;
+        listEl.appendChild(li);
+      });
+    }
+    container.style.display = 'block';
+    container.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+
+  // Simple escape to avoid injection if storing and showing values
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g, function(m){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]; });
+  }
+
+  // Confetti (canvas) - lightweight
+  const confettiCanvas = document.querySelector('.confetti-canvas');
+  const ctx = confettiCanvas.getContext('2d');
+  function setCanvasSize(){
+    confettiCanvas.width = window.innerWidth;
+    confettiCanvas.height = window.innerHeight;
+  }
+  setCanvasSize();
+  window.addEventListener('resize', setCanvasSize);
+
+  let confettiParticles = [];
+  function triggerConfetti(){
+    confettiCanvas.style.display = 'block';
+    confettiParticles = [];
+    const count = 120;
+    for(let i=0;i<count;i++){
+      confettiParticles.push({
+        x: Math.random()*confettiCanvas.width,
+        y: -20 - Math.random()*confettiCanvas.height*0.2,
+        vx: (Math.random()-0.5)*5,
+        vy: Math.random()*3+2,
+        size: Math.random()*6+4,
+        color: `hsl(${Math.floor(Math.random()*60)+330}, 70%, 55%)`
+      });
+    }
+    requestAnimationFrame(runConfetti);
+    setTimeout(()=>{ confettiParticles = []; confettiCanvas.style.display='none'; }, 4500);
+  }
+  function runConfetti(){
+    ctx.clearRect(0,0,confettiCanvas.width,confettiCanvas.height);
+    confettiParticles.forEach((p)=>{
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += 0.05;
+      ctx.fillStyle = p.color;
+      ctx.fillRect(p.x, p.y, p.size, p.size*0.6);
+    });
+    if(confettiParticles.length) requestAnimationFrame(runConfetti);
+  }
+
+  // Floating hearts (decorative)
+  const heartsHolder = document.querySelector('.hearts');
+  const heartColors = ['#f7a1c4','#ffd1a9','#ffd3d3','#f7d18d'];
+  function spawnHeart(){
+    const h = document.createElement('div');
+    h.className = 'heart';
+    const size = Math.random()*14 + 12;
+    h.style.width = size + 'px';
+    h.style.height = size + 'px';
+    h.style.left = (Math.random()*100) + '%';
+    h.style.top = (Math.random()*70) + '%';
+    h.style.opacity = Math.random()*0.7 + 0.3;
+    // heart shape using CSS via background
+    h.style.background = `radial-gradient(circle at 30% 30%, ${heartColors[Math.floor(Math.random()*heartColors.length)]} 0%, transparent 45%), radial-gradient(circle at 70% 30%, ${heartColors[Math.floor(Math.random()*heartColors.length)]} 0%, transparent 45%)`;
+    h.style.transform = 'rotate(45deg)';
+    h.style.borderRadius = '4px';
+    heartsHolder.appendChild(h);
+    setTimeout(()=> h.animate([{transform:'translateY(0) rotate(0)', opacity:1},{transform:'translateY(-120px) rotate(20deg)', opacity:0}],{duration:4200 + Math.random()*1200, easing:'ease-out'}), 10);
+    setTimeout(()=> h.remove(), 6000);
+  }
+  // spawn hearts occasionally
+  setInterval(spawnHeart, 1200);
+  for(let i=0;i<6;i++) setTimeout(spawnHeart, i*300);
+
+  // Helpful tip: allow clicking anywhere to start music (on mobile)
+  document.addEventListener('click', function onFirstClick(){
+    // try play once (some browsers require gesture)
+    audio.play().then(()=>{
+      isPlaying = true;
+      playBtn.textContent = 'Music On';
+    }).catch(()=>{});
+    document.removeEventListener('click', onFirstClick);
+  });
+
+  // small accessibility: keyboard enter on play button
+  playBtn.addEventListener('keydown', (e)=>{ if(e.key==='Enter') toggleMusic(); });
+
+  // initial load: show RSVPs if any
+  if(getRsvps().length) {
+    // small indicator in RSVP status
+    document.getElementById('rsvpStatus').textContent = getRsvps().length + ' RSVPs recorded';
+    setTimeout(()=> document.getElementById('rsvpStatus').textContent = '', 3500);
+  }
+</script>
+</body>
+</html>
